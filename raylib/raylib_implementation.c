@@ -43,14 +43,10 @@ extern void Platform_draw_point(float x, float y, float radius, uint32_t color)
 	DrawCircle(x, y, radius, U32_TO_COLOR(color));
 }
 
-extern float Platform_rand_float()
-{
-	return (float)rand() / (float)INT_MAX;
-}
-
 extern float Platform_rand_range(float min, float max)
 {
-	return min + Platform_rand_float() * (max - min);
+	float rand_float = (float)rand() / (float)INT_MAX;
+	return min + rand_float * (max - min);
 }
 
 extern void Platform_log_mem(float mem_usage)
